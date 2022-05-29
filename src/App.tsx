@@ -1,27 +1,40 @@
-import React from 'react'
-import logo from './logo.svg'
-import './App.css'
-import { Button } from '@mantine/core'
+import {
+	ColorScheme,
+	ColorSchemeProvider,
+	MantineProvider,
+} from '@mantine/core'
+import { useState } from 'react'
+import { MANTINE_THEME } from './mantine-theme'
+import Ecommerce from './modules/ecommerce'
 
 function App() {
+	const [colorScheme, setColorScheme] = useState<ColorScheme>('light')
+	const toggleColorScheme = (value?: ColorScheme) => {
+		setColorScheme(value || colorScheme === 'dark' ? 'light' : 'dark')
+	}
+
 	return (
-		<div className='App'>
-			<header className='App-header'>
-				<img src={logo} className='App-logo' alt='logo' />
-				<p>
-					Edit <code>src/App.tsx</code> and save to reload.
-				</p>
-				<a
-					className='App-link'
-					href='https://reactjs.org'
-					target='_blank'
-					rel='noopener noreferrer'
-				>
-					Learn React
-				</a>
-				<Button>Hello world!</Button>
-			</header>
-		</div>
+		<ColorSchemeProvider
+			colorScheme={colorScheme}
+			toggleColorScheme={toggleColorScheme}
+		>
+			<MantineProvider
+				theme={{ ...MANTINE_THEME, colorScheme }}
+				withGlobalStyles
+				withNormalizeCSS
+				defaultProps={{
+					Button: { color: 'gray', variant: 'outline' },
+					Badge: { size: 'xl', radius: 'lg' },
+					// ... default props for other components
+				}}
+			>
+				<div className='App'>
+					{/* <Home /> */}
+					{/* <LearnHooks /> */}
+					<Ecommerce />
+				</div>
+			</MantineProvider>
+		</ColorSchemeProvider>
 	)
 }
 
