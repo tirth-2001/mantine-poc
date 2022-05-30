@@ -1,13 +1,14 @@
 import {
 	ActionIcon,
+	Box,
 	Group,
-	Image,
 	TextInput,
 	useMantineColorScheme,
 	useMantineTheme,
 } from '@mantine/core'
 import { MenuItem } from './components/MenuItem'
 import { Search, Sun, MoonStars } from 'tabler-icons-react'
+import { LoadingImage } from './components/LoadingImage'
 
 export const Header = () => {
 	const theme = useMantineTheme()
@@ -28,11 +29,12 @@ export const Header = () => {
 				top: 0,
 			}}
 		>
-			<Image
-				sx={{ filter: dark ? 'invert(1)' : 'invert(0)' }}
-				height={60}
-				src='https://upload.wikimedia.org/wikipedia/commons/3/36/Logo_nike_principal.jpg'
-			/>
+			<Box sx={{ filter: dark ? 'invert(1)' : 'invert(0)' }}>
+				<LoadingImage
+					height={60}
+					src='https://upload.wikimedia.org/wikipedia/commons/3/36/Logo_nike_principal.jpg'
+				/>
+			</Box>
 			<Group>
 				<MenuItem name='Men' />
 				<MenuItem name='Women' />

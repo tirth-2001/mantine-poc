@@ -19,6 +19,18 @@ export const MANTINE_THEME: MantineThemeOverride = {
 			'#0C0E3F',
 			'#0A0A1A',
 		],
+		white: [
+			'#FFFFFF',
+			'#FFFFFF',
+			'#FFFFFF',
+			'#FFFFFF',
+			'#FFFFFF',
+			'#FFFFFF',
+			'#FFFFFF',
+			'#FFFFFF',
+			'#FFFFFF',
+			'#FFFFFF',
+		],
 	},
 
 	shadows: {

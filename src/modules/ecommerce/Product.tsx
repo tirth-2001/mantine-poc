@@ -68,11 +68,17 @@ export const Product = () => {
 					</Text>
 					<SimpleGrid cols={7}>{swatches}</SimpleGrid>
 					<Group spacing={'xl'} mt='md'>
-						<Button variant='filled' color='dark' radius='xl'>
-							Add to Cart
+						<Button
+							variant='filled'
+							color={theme.colorScheme === 'dark' ? 'white' : 'dark'}
+							radius='xl'
+						>
+							<Text color={theme.colorScheme === 'dark' ? 'dark' : 'white'}>
+								Add to Cart
+							</Text>
 						</Button>
 						<Button variant='outline' color='light' radius='xl'>
-							Wishlist
+							<Text>Wishlist</Text>
 						</Button>
 					</Group>
 				</Stack>
